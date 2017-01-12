@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/yofu/dxf"
-	"github.com/yofu/dxf/color"
-	"github.com/yofu/dxf/table"
+	"github.com/myung/dxf"
+	"github.com/myung/dxf/color"
+	"github.com/myung/dxf/table"
 	"log"
 	"math"
 )

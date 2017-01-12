@@ -6,9 +6,9 @@ package dxf
 import (
 	"bufio"
 	"fmt"
-	"github.com/yofu/dxf/color"
-	"github.com/yofu/dxf/drawing"
-	"github.com/yofu/dxf/table"
+	"github.com/myung/dxf/color"
+	"github.com/myung/dxf/drawing"
+	"github.com/myung/dxf/table"
 	"os"
 	"strings"
 )

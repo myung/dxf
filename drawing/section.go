@@ -1,7 +1,7 @@
 package drawing
 
 import (
-	"github.com/yofu/dxf/format"
+	"github.com/myung/dxf/format"
 )
 
 // Section is interface for DXF sections.

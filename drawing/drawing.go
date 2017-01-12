@@ -4,16 +4,17 @@ package drawing
 import (
 	"errors"
 	"fmt"
-	"github.com/yofu/dxf/block"
-	"github.com/yofu/dxf/class"
-	"github.com/yofu/dxf/color"
-	"github.com/yofu/dxf/entity"
-	"github.com/yofu/dxf/format"
-	"github.com/yofu/dxf/handle"
-	"github.com/yofu/dxf/header"
-	"github.com/yofu/dxf/object"
-	"github.com/yofu/dxf/table"
 	"os"
+
+	"github.com/myung/dxf/block"
+	"github.com/myung/dxf/class"
+	"github.com/myung/dxf/color"
+	"github.com/myung/dxf/entity"
+	"github.com/myung/dxf/format"
+	"github.com/myung/dxf/handle"
+	"github.com/myung/dxf/header"
+	"github.com/myung/dxf/object"
+	"github.com/myung/dxf/table"
 )
 
 // Drawing contains DXF drawing data.
@@ -169,28 +170,28 @@ func (d *Drawing) AddEntity(e entity.Entity) {
 }
 
 // Point creates a new POINT at (x, y, z).
-func (d *Drawing) Point(x, y, z float64) (*entity.Point, error) {
+func (d *Drawing) Point(x, y float64) (*entity.Point, error) {
 	p := entity.NewPoint()
-	p.Coord = []float64{x, y, z}
+	p.Coord = []float64{x, y, 0}
 	p.SetLayer(d.CurrentLayer)
 	d.AddEntity(p)
 	return p, nil
 }
 
 // Line creates a new LINE from (x1, y1, z1) to (x2, y2, z2).
-func (d *Drawing) Line(x1, y1, z1, x2, y2, z2 float64) (*entity.Line, error) {
+func (d *Drawing) Line(x1, y1, x2, y2 float64) (*entity.Line, error) {
 	l := entity.NewLine()
-	l.Start = []float64{x1, y1, z1}
-	l.End = []float64{x2, y2, z2}
+	l.Start = []float64{x1, y1, 0}
+	l.End = []float64{x2, y2, 0}
 	l.SetLayer(d.CurrentLayer)
 	d.AddEntity(l)
 	return l, nil
 }
 
 // Circle creates a new CIRCLE at (x, y, z) with radius r.
-func (d *Drawing) Circle(x, y, z, r float64) (*entity.Circle, error) {
+func (d *Drawing) Circle(x, y, r float64) (*entity.Circle, error) {
 	c := entity.NewCircle()
-	c.Center = []float64{x, y, z}
+	c.Center = []float64{x, y, 0}
 	c.Radius = r
 	c.SetLayer(d.CurrentLayer)
 	d.AddEntity(c)
